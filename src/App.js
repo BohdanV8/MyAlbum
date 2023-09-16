@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import "./styles/app.css";
+import AppRouter from "./components/AppRouter";
+import { AuthContext } from "./context";
+import { BrowserRouter } from "react-router-dom";
 function App() {
-  return <div className="text-center mt-3 shrikhandText">My album</div>;
+  const [isAuth, setIsAuth] = useState(false);
+  return (
+    <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </AuthContext.Provider>
+  );
 }
 
 export default App;
