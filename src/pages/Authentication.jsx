@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../Firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { UserContext } from "../context";
 const Authentication = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setEmailOfUser } = useContext(UserContext);
   const navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,6 +20,7 @@ const Authentication = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setEmailOfUser(email);
       navigate("/myAlbum");
     } catch (error) {}
   };

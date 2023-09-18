@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../context";
+import { UserContext } from "../context";
 import { Route, Routes } from "react-router-dom";
 import { routesOfApp } from "../router/routes";
 const AppRouter = () => {
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth } = useContext(UserContext);
   return isAuth ? (
     <div></div>
   ) : (

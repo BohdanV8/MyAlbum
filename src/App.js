@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import "./styles/app.css";
 import AppRouter from "./components/AppRouter";
-import { AuthContext } from "./context";
+import { UserContext } from "./context";
 import { BrowserRouter } from "react-router-dom";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const [emailOfUser, setEmailOfUser] = useState("");
   return (
-    <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+    <UserContext.Provider
+      value={{ isAuth, setIsAuth, emailOfUser, setEmailOfUser }}
+    >
       <BrowserRouter>
         <AppRouter />
       </BrowserRouter>
-    </AuthContext.Provider>
+    </UserContext.Provider>
   );
 }
 

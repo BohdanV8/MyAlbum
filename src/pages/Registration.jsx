@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { auth } from "../Firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { UserContext } from "../context";
 const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setEmailOfUser } = useContext(UserContext);
   const navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -22,11 +24,9 @@ const Registration = () => {
         email,
         password
       );
-      const user = userCredential.user;
+      setEmailOfUser(email);
       navigate("/myAlbum");
-    } catch (error) {
-      //console.error("Registration error:", error);
-    }
+    } catch (error) {}
   };
 
   return (

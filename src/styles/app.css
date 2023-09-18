@@ -4,3 +4,12 @@
     font-size: 50px;
     color: orangered;
 }
+
+.iconAdd{
+    cursor: pointer;
+    font-size: 45px;
+    position: absolute;
+    right: 200px;
+}
+
+
