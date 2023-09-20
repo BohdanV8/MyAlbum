@@ -5,7 +5,6 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import FormAddingPhoto from "../components/FormAddingPhoto";
 import AlbumList from "../components/AlbumList";
 const Album = () => {
-  const albumObjects = [];
   const [modal, setModal] = useState(false);
   return (
     <div className="mt-3 text-center">
@@ -19,11 +18,7 @@ const Album = () => {
       <MyModal visible={modal} setVisible={setModal}>
         <FormAddingPhoto />
       </MyModal>
-      {albumObjects.length === 0 ? (
-        <h1 className="mt-4">Not photos or videos found</h1>
-      ) : (
-        <AlbumList />
-      )}
+      <AlbumList />
     </div>
   );
 };

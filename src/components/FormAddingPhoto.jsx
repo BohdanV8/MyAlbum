@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { getDatabase, ref, set, push } from "firebase/database"; // Імпорт функцій Realtime Database
 import { storage } from "../Firebase/firebase";
-import { ref as storageRef, uploadString } from "firebase/storage";
+import { ref as storageRef, uploadBytes } from "firebase/storage";
 import { UserContext } from "../context";
 
 const FormAddingPhoto = () => {
@@ -19,12 +19,11 @@ const FormAddingPhoto = () => {
     if (selectedFile) {
       // Створення посилання на зберігання у Firebase Storage
       const urlOfPhoto = `images/${emailOfUser}/${selectedFile.name}`;
-      const storage_Ref = storageRef(storage, urlOfPhoto.replace(/\./g, "_"));
-
+      const storage_Ref = storageRef(storage, urlOfPhoto);
       try {
         // Завантаження фотографії у Firebase Storage
-        await uploadString(storage_Ref, selectedFile);
 
+        await uploadBytes(storage_Ref, selectedFile);
         // Успішне завантаження, ви можете виконати додаткові дії тут
       } catch (error) {
         console.error("Помилка завантаження фотографії:", error);
@@ -48,7 +47,7 @@ const FormAddingPhoto = () => {
         const data = {
           title: titleValue,
           description: descriptionValue,
-          imageURL: url_of_image.replace(/\./g, "_"), // Посилання на фотографію у Storage
+          imageURL: url_of_image, // Посилання на фотографію у Storage
         };
 
         // Додавання даних до Realtime Database
