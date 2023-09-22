@@ -26,10 +26,14 @@ const Album = () => {
       <div className="container-fluid text-center mt-5">
         <div className="row">
           {userPhotos.map((photo, index) => (
-            <div className="text-center" key={index}>
+            <div className="text-center mt-5" key={index}>
               <p className="shrikhandText">{photo.title}</p>
-              <img src={photo.imageURL} alt={`Фото ${index + 1}`} />
-              <p>{photo.description}</p>
+              <img
+                className="img-fluid"
+                src={photo.imageURL}
+                alt={`Фото ${index + 1}`}
+              />
+              <p className="LoraText">{photo.description}</p>
             </div>
           ))}
         </div>
