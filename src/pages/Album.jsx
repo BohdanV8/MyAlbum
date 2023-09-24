@@ -27,7 +27,7 @@ const Album = () => {
         <div className="row">
           {userPhotos.map((photo, index) => (
             <div className="text-center mt-5" key={index}>
-              <p className="RalawayText">{photo.title}</p>
+              <p className="RalewayText">{photo.title}</p>
               <img
                 className="img-fluid max-width-100"
                 src={photo.imageURL}
