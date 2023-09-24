@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 .shrikhandText{
     font-family: 'Shrikhand', cursive;
     font-size: 50px;
@@ -9,6 +10,11 @@
 .LoraText{
     font-family: 'Lora', serif;
     font-size: 30px;
+}
+
+.QuicksandText{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 40px;
 }
 
 .iconAdd{
