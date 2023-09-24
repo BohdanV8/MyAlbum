@@ -27,13 +27,13 @@ const Album = () => {
         <div className="row">
           {userPhotos.map((photo, index) => (
             <div className="text-center mt-5" key={index}>
-              <p className="QuicksandText">{photo.title}</p>
+              <p className="RalawayText">{photo.title}</p>
               <img
                 className="img-fluid max-width-100"
                 src={photo.imageURL}
                 alt={`Фото ${index + 1}`}
               />
-              <p className="LoraText">{photo.description}</p>
+              <p className="WorkSansText">{photo.description}</p>
             </div>
           ))}
         </div>
