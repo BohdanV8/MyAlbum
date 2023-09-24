@@ -23,17 +23,17 @@ const Album = () => {
       <MyModal visible={modal} setVisible={setModal}>
         <FormAddingPhoto setVisible={setModal} setUserPhotos={setUserPhotos} />
       </MyModal>
-      <div className="container-fluid text-center mt-5">
+      <div className="container text-center mt-5">
         <div className="row">
           {userPhotos.map((photo, index) => (
             <div className="text-center mt-5" key={index}>
-              <p className="shrikhandText">{photo.title}</p>
+              <p className="RalewayText">{photo.title}</p>
               <img
                 className="img-fluid"
                 src={photo.imageURL}
                 alt={`Фото ${index + 1}`}
               />
-              <p className="LoraText">{photo.description}</p>
+              <p className="WorkSansText">{photo.description}</p>
             </div>
           ))}
         </div>
